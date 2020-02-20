@@ -1,18 +1,24 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>Hello there!</h1>
+    <h2>I'm <b>Isaac Osuna</b>.</h2>
+    <p>I'm a multipotentialite who likes <router-link to="/psychology">psychology</router-link>,
+      <router-link to="/gastronomy">gastronomy</router-link> and
+      <router-link to="/software">software engineering</router-link> as it's main interests,
+      but I also like to experiment in <router-link to="/">other fields</router-link>.</p>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
 
 export default {
   name: 'Home',
-  components: {
-    HelloWorld,
-  },
 };
 </script>
+
+<style scoped>
+  p {
+    margin-right: calc(20em * 0.33vm);
+  }
+</style>

@@ -7,6 +7,9 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/',
+    meta: {
+      title: 'Isaac Osuna',
+    },
     name: 'Home',
     component: Home,
   },
