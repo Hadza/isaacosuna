@@ -1,11 +1,11 @@
 <template>
   <div class="home">
     <h1>Hello there!</h1>
-    <h2>I'm <b>Isaac Osuna</b>.</h2>
-    <p>I'm a multipotentialite who likes <router-link to="/psychology">psychology</router-link>,
+    <h2>I'm <a>Isaac Osuna</a>.</h2>
+    <p>I'm a multipotentialite who has <router-link to="/psychology">psychology</router-link>,
       <router-link to="/gastronomy">gastronomy</router-link> and
       <router-link to="/software">software engineering</router-link> as it's main interests,
-      but I also like to experiment in <router-link to="/">other fields</router-link>.</p>
+      but I also like to experiment in <router-link to="/other">other fields</router-link>.</p>
   </div>
 </template>
 

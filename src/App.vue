@@ -1,6 +1,6 @@
 <template>
-  <div id="app">
-    <transition name="slide-right">
+  <div id="app" >
+    <transition :name="transitionName">
       <router-view/>
     </transition>
   </div>
@@ -8,11 +8,16 @@
 
 <script>
 export default {
+  data() {
+    return {
+      transitionName: 'slide-in',
+    };
+  },
   watch: {
     $route: {
       immediate: true,
       handler(to) {
-        document.title = to.meta.title || 'Some Default Title';
+        document.title = to.meta.title || 'Isaac Osuna';
       },
     },
   },
@@ -20,8 +25,11 @@ export default {
 </script>
 
 <style lang="scss">
-  @import url('https://fonts.googleapis.com/css?family=Rubik:400,700&display=swap');
 
+  @font-face {
+    font-family: "Rubik";
+    src: url('assets/fonts/Rubik/Rubik-Regular.ttf');
+  }
 #app {
   font-family: 'Rubik';
   -webkit-font-smoothing: antialiased;
@@ -29,13 +37,24 @@ export default {
   font-size: calc(15px + 0.33vw);
   padding: 5vh 10vw;
   color: #121314;
+  animation: fadein 1s;
 }
+  @keyframes fadein {
+    from { opacity: 0}
+    to   { opacity: 1}
+  }
 
   h1 {
     font-weight: 300;
   }
   h2 {
     font-weight: 300;
+  }
+
+  div {
+    div {
+      position: absolute;
+    }
   }
 
   a {
@@ -54,7 +73,7 @@ export default {
     &:before {
       transition: 100ms ease-out 50ms;
       transform-origin: bottom;
-      bottom: 3px;
+      bottom: 0;
       left: 0;
       width: 100%;
       height: 30%;
@@ -69,7 +88,7 @@ export default {
     &:hover {
       &:before {
         transition: 100ms ease-out;
-        transform: scaleY(2.5);
+        transform: scaleY(3);
         background: mix(#f1f1f1, #0077ff, 60%);
       }
       &:after {
@@ -87,4 +106,20 @@ export default {
       }
     }
   }
+
+  .slide-in-leave-active,
+  .slide-in-enter-active {
+    transition-property: opacity;
+    transition-duration: .10s;
+    transition: 1s;
+  }
+  .slide-in-enter {
+    transform: translate(0, -100%);
+    opacity: 0;
+  }
+  .slide-in-leave-to {
+    transform: translate(0, 100%);
+    opacity: 0;
+  }
+
 </style>
