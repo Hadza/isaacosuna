@@ -115,7 +115,7 @@ export default {
   }
   .slide-in-enter {
     transform: translate(0, -100%);
-    opacity: 0;
+    opacity:0;
   }
   .slide-in-leave-to {
     transform: translate(0, 100%);
