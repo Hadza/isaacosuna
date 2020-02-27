@@ -18,7 +18,4 @@ export default {
 </script>
 
 <style scoped>
-  p {
-    margin-right: calc(20em * 0.33vm);
-  }
 </style>
