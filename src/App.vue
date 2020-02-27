@@ -16,8 +16,11 @@ export default {
   watch: {
     $route: {
       immediate: true,
-      handler(to) {
+      handler(to, from) {
         document.title = to.meta.title || 'Isaac Osuna';
+        const toDepth = to.path.split('/').length;
+        const fromDepth = from.path.split('/').length;
+        this.transitionName = (toDepth < fromDepth) || from.path !== '/' ? 'slide-out' : 'slide-in';
       },
     },
   },
@@ -30,7 +33,7 @@ export default {
     font-family: "Rubik";
     src: url('assets/fonts/Rubik/Rubik-Regular.ttf');
   }
-#app {
+  #app {
   font-family: 'Rubik';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -119,6 +122,21 @@ export default {
   }
   .slide-in-leave-to {
     transform: translate(0, 100%);
+    opacity: 0;
+  }
+
+  .slide-out-leave-active,
+  .slide-out-enter-active {
+    transition-property: opacity;
+    transition-duration: .10s;
+    transition: 1s;
+  }
+  .slide-out-enter {
+    transform: translate(0, 100%);
+    opacity:0;
+  }
+  .slide-out-leave-to {
+    transform: translate(0, -100%);
     opacity: 0;
   }
 
