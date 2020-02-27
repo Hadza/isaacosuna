@@ -1,5 +1,5 @@
 <template>
-  <div id="app" >
+  <div id="app">
     <transition :name="transitionName">
       <router-view/>
     </transition>
@@ -28,7 +28,6 @@ export default {
 </script>
 
 <style lang="scss">
-
   @font-face {
     font-family: "Rubik";
     src: url('assets/fonts/Rubik/Rubik-Regular.ttf');

@@ -46,8 +46,9 @@ export default {
     position:relative;
   }
   .psychology {
+    width:75%;
   }
   hr {
-    width:100%;
+
   }
 </style>
