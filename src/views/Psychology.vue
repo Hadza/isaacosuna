@@ -1,11 +1,12 @@
 <template>
     <div class="psychology">
       <router-link to="/">Go back</router-link>
-      <h1>Psychology</h1>
+      <h1 class="text-5xl">Psychology</h1>
+      <h2 class="text-3xl mb-6"> Hola</h2>
       <div v-for="post in posts" :key="post" class="post">
-        <h3>{{post.title}}</h3>
+        <h3 class="mb-2">{{post.title}}</h3>
         <h4>{{post.subtitle}}</h4>
-        <p>{{post.content}}</p>
+        <p class="mb-4">{{post.content}}</p>
         <hr>
       </div>
     </div>

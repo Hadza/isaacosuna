@@ -64,17 +64,5 @@
   ],
   "jest": {
     "preset": "@vue/cli-plugin-unit-jest"
-  },
-  "postcss": {
-    "plugins": {
-      "tailwindcss": {},
-      "autoprefixer": {},
-      "@fullhuman/postcss-purgecss": {
-        "content": [
-          "./src/**/*.html",
-          "./src/**/*.vue"
-        ]
-      }
-    }
   }
 }

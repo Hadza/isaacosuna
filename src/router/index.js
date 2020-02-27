@@ -19,7 +19,7 @@ const routes = [
     meta: {
       title: 'Isaac Osuna - Psychology',
     },
-    component: () => import(/* webpackChunkName: "about" */ '../views/Psychology.vue'),
+    component: () => import(/* webpackChunkName: "psychology" */ '../views/Psychology.vue'),
   },
   {
     path: '/gastronomy',
