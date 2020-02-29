@@ -1,6 +1,6 @@
 <template>
-  <div id="app">
-    <transition :name="transitionName">
+  <div id="app" class="container mx-auto px-1">
+    <transition :name="transitionName" mode="out-in">
       <router-view/>
     </transition>
   </div>
@@ -15,7 +15,6 @@ export default {
   },
   watch: {
     $route: {
-      immediate: true,
       handler(to, from) {
         document.title = to.meta.title || 'Isaac Osuna';
         const toDepth = to.path.split('/').length;
@@ -23,6 +22,9 @@ export default {
         this.transitionName = (toDepth < fromDepth) || from.path !== '/' ? 'slide-out' : 'slide-in';
       },
     },
+  },
+  mounted() {
+    document.title = 'Isaac Osuna';
   },
 };
 </script>
@@ -37,26 +39,12 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: calc(15px + 0.33vw);
-  padding: 5vh 10vw;
   color: #121314;
   animation: fadein 1s;
 }
   @keyframes fadein {
     from { opacity: 0}
     to   { opacity: 1}
-  }
-
-  h1 {
-    font-weight: 300;
-  }
-  h2 {
-    font-weight: 300;
-  }
-
-  div {
-    div {
-      position: absolute;
-    }
   }
 
   a {
@@ -113,14 +101,14 @@ export default {
   .slide-in-enter-active {
     transition-property: opacity;
     transition-duration: .10s;
-    transition: 1s;
+    transition: 500ms;
   }
   .slide-in-enter {
-    transform: translate(0, -100%);
+    transform: translate(100%,0);
     opacity:0;
   }
   .slide-in-leave-to {
-    transform: translate(0, 100%);
+    transform: translate(-100%, 0);
     opacity: 0;
   }
 
@@ -128,14 +116,14 @@ export default {
   .slide-out-enter-active {
     transition-property: opacity;
     transition-duration: .10s;
-    transition: 1s;
+    transition: 500ms;
   }
   .slide-out-enter {
-    transform: translate(0, 100%);
+    transform: translate(-100%, 0);
     opacity:0;
   }
   .slide-out-leave-to {
-    transform: translate(0, -100%);
+    transform: translate(100%, 0);
     opacity: 0;
   }
 

@@ -1,15 +1,22 @@
 <template>
-    <div class="psychology">
-      <router-link to="/">Go back</router-link>
-      <h1 class="text-5xl">Psychology</h1>
-      <h2 class="text-3xl mb-6"> Hola</h2>
-      <div v-for="post in posts" :key="post" class="post">
-        <h3 class="mb-2">{{post.title}}</h3>
-        <h4>{{post.subtitle}}</h4>
-        <p class="mb-4">{{post.content}}</p>
-        <hr>
+  <div class="py-5">
+    <router-link to="/" >Go back</router-link>
+    <h1 class="text-5xl">Psychology</h1>
+    <div
+      v-for="post in posts" :key="post.title"
+      class="md:flex sm:max-w-xl md:max-w-5xl h-48 mb-6
+      lg:shadow-lg md:shadow-md sm:shadow-sm overflow-hidden"
+    >
+      <img class="sm:w-full md:w-1/4" src="https://tailwindcss.com/img/card-top.jpg" alt="Sunset in the mountains">
+      <div class="px-6 py-4 overflow-hidden">
+        <div class="font-bold text-xl">{{post.title}}</div>
+        <div class="font-light text-lg text-gray-800">{{post.subtitle}}</div>
+        <p class="text-gray-600 text-base">
+          {{post.content}}
+        </p>
       </div>
     </div>
+  </div>
 </template>
 
 <script>
@@ -21,7 +28,13 @@ export default {
         {
           title: 'Post 1',
           subtitle: 'Esta es la descripcion',
-          content: 'Este es el contenidooooooooooooooooooooooooooooo',
+          content: 'Este es el contenidooooooooooooooooooooooooooooo '
+            + 'por que cuando agregas algo mas a esto'
+            + 'pues se van agregando mas palabras y mas palabras'
+            + 'y pues lorem ipsum sit amet y la chingada'
+            + 'y se agregan mas y mas y mas'
+            + 'por que pues por que no a la verga'
+            + 'hehehehehe',
           thumbnail: 'path',
         },
         {
@@ -43,12 +56,10 @@ export default {
 </script>
 
 <style scoped>
-  .post{
-    position:relative;
+  .post {
+    position: relative;
   }
-  .psychology {
-    width:75%;
-  }
+
   hr {
 
   }
