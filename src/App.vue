@@ -23,7 +23,7 @@ export default {
       },
     },
   },
-  mounted() {
+  beforeCreate() {
     document.title = 'Isaac Osuna';
   },
 };
@@ -45,6 +45,15 @@ export default {
   @keyframes fadein {
     from { opacity: 0}
     to   { opacity: 1}
+  }
+
+  ::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+  }
+  /* Optional: show position indicator in red */
+  ::-webkit-scrollbar-thumb {
+    background: rgba(193, 217, 244, 0.96);
   }
 
   a {
