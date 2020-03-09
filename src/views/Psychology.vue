@@ -2,8 +2,9 @@
   <div class="py-5">
     <router-link to="/" >Go back</router-link>
     <h1 class="text-5xl">Psychology</h1>
+    <button @click="printState">Print state</button>
       <div
-        v-for="post in posts"
+        v-for="post in psychology"
         :key="post.id"
       >
         <Post
@@ -14,12 +15,21 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import Post from '../components/Post.vue';
 
 export default {
   name: 'Psychology',
   components: {
     Post,
+  },
+  computed: {
+    ...mapState(['psychology']),
+  },
+  methods: {
+    printState() {
+      console.log(this.$store.state.psychology);
+    },
   },
   data() {
     return {
@@ -28,7 +38,7 @@ export default {
           id: 1,
           title: 'Post 1',
           subtitle: 'Esta es la descripcion',
-          content: 'Este es el contenido '
+          content: '**Este** es el contenido '
             + 'por que cuando agregas algo mas a esto'
             + 'pues se van agregando mas palabras y mas palabras'
             + 'y pues lorem ipsum sit amet y la chingada'

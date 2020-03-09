@@ -15,8 +15,10 @@
         <p
           class="mb-8 sm:h-auto text-gray-600 text-base"
           :class="{'overflow-hidden h-24':!showingPost, 'overflow-auto':showingPost}">
-          {{post.content.length > 150 && !showingPost ?
-          post.content.substring(0, 150) + '...':post.content}}
+          <VueMarkdown>
+            {{post.content.length > 150 && !showingPost ?
+            post.content.substring(0, 150) + '...':post.content}}
+          </VueMarkdown>
         </p>
         <a v-if="true"
            class="cursor-pointer absolute right-0 bottom-0 mr-4 mb-4 text-gray-700 text-base"
@@ -29,8 +31,13 @@
 </template>
 
 <script>
+import VueMarkdown from 'vue-markdown';
+
 export default {
   name: 'Post',
+  components: {
+    VueMarkdown,
+  },
   props: {
     post: Object,
   },
