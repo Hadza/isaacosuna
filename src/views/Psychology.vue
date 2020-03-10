@@ -2,7 +2,6 @@
   <div class="py-5">
     <router-link to="/" >Go back</router-link>
     <h1 class="text-5xl">Psychology</h1>
-    <button @click="printState">Print state</button>
       <div
         v-for="post in psychology"
         :key="post.id"
@@ -15,7 +14,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 import Post from '../components/Post.vue';
 
 export default {
@@ -30,6 +29,10 @@ export default {
     printState() {
       console.log(this.$store.state.psychology);
     },
+    ...mapActions(['bindPsychology']),
+  },
+  created() {
+    this.bindPsychology();
   },
   data() {
     return {

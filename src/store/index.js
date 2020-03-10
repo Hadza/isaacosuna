@@ -16,13 +16,7 @@ export default new Vuex.Store({
     ...vuexfireMutations,
   },
   actions: {
-    // eslint-disable-next-line max-len
-    // bindPsychology: firestoreAction(({ bindFirestoreRef }) => bindFirestoreRef('psychology', db.collection('psychology').orderBy('createdAt', 'desc'))),
-    bindPsychology: firestoreAction(({ bindFirestoreRef }) => {
-      // return the promise returned by `bindFirestoreRef`
-      console.log('pasamos por aqui wey que pedo');
-      return bindFirestoreRef('psychology', db.collection('psychology'));
-    }),
+    bindPsychology: firestoreAction(({ bindFirestoreRef }) => bindFirestoreRef('psychology', db.collection('psychology').orderBy('createdAt', 'desc'))),
     bindSoftware: firestoreAction(({ bindFirestoreRef }) => bindFirestoreRef('software', db.collection('software').orderBy('createdAt', 'desc'))),
     bindGastronomy: firestoreAction(({ bindFirestoreRef }) => bindFirestoreRef('gastronomy', db.collection('gastronomy').orderBy('createdAt', 'desc'))),
     bindOthers: firestoreAction(({ bindFirestoreRef }) => bindFirestoreRef('others', db.collection('others').orderBy('createdAt', 'desc'))),
