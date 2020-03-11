@@ -7,19 +7,17 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    psychology: [],
-    software: [],
-    gastronomy: [],
-    others: [],
+    selectedTopic: '',
+    blog: [],
   },
   mutations: {
+    setTopic(state, topic) {
+      state.selectedTopic = topic;
+    },
     ...vuexfireMutations,
   },
   actions: {
-    bindPsychology: firestoreAction(({ bindFirestoreRef }) => bindFirestoreRef('psychology', db.collection('psychology').orderBy('createdAt', 'desc'))),
-    bindSoftware: firestoreAction(({ bindFirestoreRef }) => bindFirestoreRef('software', db.collection('software').orderBy('createdAt', 'desc'))),
-    bindGastronomy: firestoreAction(({ bindFirestoreRef }) => bindFirestoreRef('gastronomy', db.collection('gastronomy').orderBy('createdAt', 'desc'))),
-    bindOthers: firestoreAction(({ bindFirestoreRef }) => bindFirestoreRef('others', db.collection('others').orderBy('createdAt', 'desc'))),
+    bindBlog: firestoreAction(({ bindFirestoreRef, state }) => bindFirestoreRef('blog', db.collection('blog').where('topic', '==', state.selectedTopic).orderBy('createdAt', 'desc'))),
   },
   modules: {
   },

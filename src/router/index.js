@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
 
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -19,7 +20,10 @@ const routes = [
     meta: {
       title: 'Isaac Osuna - Psychology',
     },
-    component: () => import(/* webpackChunkName: "psychology" */ '../views/Psychology.vue'),
+    component: () => import(/* webpackChunkName: "blog" */ '../views/Blog.vue'),
+    props: {
+      topic: 'psychology',
+    },
   },
   {
     path: '/gastronomy',
@@ -27,7 +31,10 @@ const routes = [
     meta: {
       title: 'Isaac Osuna - Gastronomy',
     },
-    component: () => import(/* webpackChunkName: "about" */ '../views/Gastronomy.vue'),
+    component: () => import(/* webpackChunkName: "blog" */ '../views/Blog.vue'),
+    props: {
+      topic: 'gastronomy',
+    },
   },
   {
     path: '/software',
@@ -35,7 +42,10 @@ const routes = [
     meta: {
       title: 'Isaac Osuna - Software Engineering',
     },
-    component: () => import(/* webpackChunkName: "about" */ '../views/Software.vue'),
+    component: () => import(/* webpackChunkName: "blog" */ '../views/Blog.vue'),
+    props: {
+      topic: 'software',
+    },
   },
   {
     path: '/others',
@@ -43,7 +53,10 @@ const routes = [
     meta: {
       title: 'Isaac Osuna - Others',
     },
-    component: () => import(/* webpackChunkName: "about" */ '../views/Others.vue'),
+    component: () => import(/* webpackChunkName: "blog" */ '../views/Blog.vue'),
+    props: {
+      topic: 'others',
+    },
   },
 ];
 
