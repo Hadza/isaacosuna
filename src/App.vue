@@ -110,7 +110,7 @@ export default {
   .slide-in-enter-active {
     transition-property: opacity;
     transition-duration: .10s;
-    transition: 500ms;
+    transition: 350ms;
   }
   .slide-in-enter {
     transform: translate(100%,0);
@@ -125,7 +125,7 @@ export default {
   .slide-out-enter-active {
     transition-property: opacity;
     transition-duration: .10s;
-    transition: 500ms;
+    transition: 350ms;
   }
   .slide-out-enter {
     transform: translate(-100%, 0);

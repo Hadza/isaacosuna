@@ -2,6 +2,7 @@
   <div class="py-5">
     <router-link to="/" >Go back</router-link>
     <h1 class="text-5xl">{{topic.charAt(0).toUpperCase() + topic.slice(1)}}</h1>
+    <transition-group name="slide-in" tag="div">
       <div
         v-for="post in blog"
         :key="post.id"
@@ -10,6 +11,7 @@
           :post="post"
         ></Post>
       </div>
+    </transition-group>
   </div>
 </template>
 
