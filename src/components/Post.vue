@@ -12,32 +12,33 @@
       <div class="relative flex flex-col px-6 py-4 w-full h-full">
         <div class="font-bold text-xl">{{post.title}}</div>
         <div class="hidden sm:flex font-light text-lg text-gray-800 ">{{post.subtitle}}</div>
-        <p
-          class="mb-8 sm:h-auto text-gray-600 text-base"
-          :class="{'overflow-hidden h-24':!showingPost, 'relative':showingPost}">
-          <VueMarkdown :source="content" class="pb-4">
-          </VueMarkdown>
+        <div
+          :class="{'overflow-hidden h-24':!showingPost, 'relative':showingPost}"
+        >
+          <p
+            class="mb-8 pb-2 sm:h-auto text-gray-600 text-base font-light"
+            v-html="content">
+          </p>
           <a v-if="true"
              class="cursor-pointer absolute right-0 bottom-0 mr-4 text-gray-700
            text-base"
-             :class="{'mb-4':!showingPost}"
+             :class="{'mb-2':showingPost, 'mb-4':!showingPost}"
              @click="showingPost = !showingPost"
           >
             {{showingPost ? 'show less':'show more'}}
           </a>
-        </p>
+        </div>
       </div>
     </div>
 </template>
 
 <script>
-import VueMarkdown from 'vue-markdown';
+const Mark = require('markdown-it');
+
+const md = new Mark();
 
 export default {
   name: 'Post',
-  components: {
-    VueMarkdown,
-  },
   props: {
     post: Object,
   },
@@ -46,7 +47,7 @@ export default {
       let { content } = this.post;
       content = content.split('\\n').join('\n');
       content = content.split('\\r').join('\r');
-      return content;
+      return md.render(content);
     },
   },
   data() {

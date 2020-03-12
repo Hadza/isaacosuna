@@ -35,7 +35,7 @@ export default {
     src: url('assets/fonts/Rubik/Rubik-Regular.ttf');
   }
   #app {
-  font-family: 'Rubik';
+  font-family: 'Rubik', 'Arial';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: calc(15px + 0.33vw);
@@ -48,8 +48,8 @@ export default {
   }
 
   ::-webkit-scrollbar {
-    width: 0px;  /* Remove scrollbar space */
-    background: transparent;  /* Optional: just make scrollbar invisible */
+    width: 0;
+    background: transparent;
   }
   /* Optional: show position indicator in red */
   ::-webkit-scrollbar-thumb {
